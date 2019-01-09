@@ -5,7 +5,7 @@
  API호출을 하는 ```<button>```에 건다. 다음과 같은 형식으로 사용할 수 있다.
  
 ```javascript
-const throttled = (delay, fn) => {
+const throttled = function(delay, fn) {
     let lastCall = 0;
     return (...args) => {
         let context = this;
@@ -38,7 +38,7 @@ O(n)의 시간복잡도를 요구하게 된다. 물론 O(n)은 O(1)인 HashMap, 
 실행되지 않고 중복 이벤트가 발생된 시점을 기준으로 다시 카운트를 시작한다.
 
 ```javascript
-const debounce = (delay, fn) => {
+const debounce = function(delay, fn) {
     let timeId;
     return (...args) => {
         const context = this;
