@@ -8,8 +8,8 @@
 const throttled = function(delay, fn) {
     let lastCall = 0;
     return (...args) => {
-        let context = this;
-        let current = new Date().getTime();
+        const context = this;
+        const current = new Date().getTime();
         
         if (current - lastCall < delay) {
             return;
@@ -23,6 +23,24 @@ const throttled = function(delay, fn) {
 const handleClick = throttled(2000, () => { console.log('throttle is invoked') });
 const btn = document.getElementById('btn');
 btn.addEventListener('click', handleClick);
+```
+
+다음은 ```setTimeout```을 이용해 구현하느 방법이다.
+```javascript
+const throttled = function(delay, fn) {
+    let timeId;
+    return (...args) => {
+        const context = this;
+        if (timeId) {
+            clearTimeout(timeId);
+        }
+        
+        setTimeout(() => {
+            fn.apply(context, ...args);
+            timeId = null;
+        }, delay);
+    };
+}
 ```
 throttle을 ```setTimeout```을 이용해 구현하는 방법도 있으나 개인적으로 나는 아래와 같은 이유로 선호하지 않는다.
 * ```clearTimeout```을 같이 관리해줘야한다. [W3C Timers](https://www.w3.org/TR/2011/WD-html5-20110525/timers.html#dom-windowtimers-settimeout)에 따르면 
