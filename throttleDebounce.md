@@ -35,7 +35,7 @@ const throttled = function(delay, fn) {
             clearTimeout(timeId);
         }
         
-        setTimeout(() => {
+         timeId = setTimeout(() => {
             fn.apply(context, ...args);
             timeId = null;
         }, delay);
