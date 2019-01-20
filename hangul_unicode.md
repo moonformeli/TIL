@@ -200,8 +200,6 @@ console.log(CFile.replace(/[0-9]+-[0-9]+-[0-9]+/g, '...'));
 ## 난파된 해적선안에 잠자고 있는 것은 황금뿐만은 아니다 - 생각지도 못했던 변수와 추후 고려 사항
 기쁨도 잠시, 해당 방법에 대해 좀 더 명확하게 하려면 마무리까지 확실하게 해야했다. 우선, normalize 메소드의 경우 아주 치명적인 단점이 있었으니 그것은 바로 IE의 지원이 전혀 되지 않는 다는 것이다. 전.혀.
 ![what_the_heck.jpeg](images/hangul_unicode/what_the_heck.jpeg)
-![what_the_heck.jpeg](images/hangul_unicode/what_the_heck.jpeg)
-![what_the_heck.jpeg](images/hangul_unicode/what_the_heck.jpeg)
 
 출처 - [구글 이미지 [WHAT THE HECK?]](http://www.quickmeme.com/img/02/0213043c2680cd6a7dad73df5359c75ce089262b3b86476a62e6564f54c40c08.jpg)
 
