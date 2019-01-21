@@ -19,7 +19,7 @@
 그리고 문제의 유니코드는 다음과 같다.
 ![파일네임 조작 실패](images/hangul_unicode/파일네임_조작_실패.png)
 
-*filename*이 업로드한 파일의 이름을 유니코드화 한 형태이고, 그 아래는 문자열의 변환을 꾀하 모습이지만 보기좋게 실패한 것을 볼 수 있다. **왜 이런 일이 발생할까?**
+*filename*이 업로드한 파일의 이름을 유니코드화 한 형태이고, 그 아래는 문자열의 변환을 꾀한 모습이지만 보기좋게 실패한 것을 볼 수 있다. **왜 이런 일이 발생할까?**
 
 # 한글의 원리와 유니코드의 역사
    위대하고 위대하신 우리의 세종대왕은 만렙의 정치력으로 집현전에서 [포괄임금제를 받고 일하는 현대](https://vignette.wikia.nocookie.net/satireknight/images/8/81/Nooooooo_otter.jpg/revision/latest?cb=20141106102839)에서도
@@ -33,7 +33,7 @@
    현재 [미국에 거주중인 인구](https://www.google.com/search?q=population+diversity+in+the+usa&rlz=1C5CHFA_enKR824KR824&oq=population+diversity+in+the+usa&aqs=chrome.0.69i59j0.4217j0j1&sourceid=chrome&ie=UTF-8)의 약 17.8%는 히스패닉과 라틴계이고, 백인의 비율은 61.3%라고 한다. 
 이민자가 더욱이 적었을 과거의 무렵엔 특히나 아직까지도 우리에게 백인우월주의의 선입견이 남아있는 미국이란 나라에서 컴퓨터 개발을 주도한 사람들은 아마 거의 대부분이 백인으로 구성되어 있지 않을까하는 조심스러운 예측을 기반으로,
  문자 처리에 대한 표준 부호, *ASCII*, 에 대해서 아주 간략하게 알아보겠다. 구글에 ["What does ASCII stand for"](https://www.google.com/search?q=what+does+ascii+stand+for&rlz=1C5CHFA_enKR824KR824&oq=what+does+asc&aqs=chrome.0.69i59j69i57j0l4.2597j0j9&sourceid=chrome&ie=UTF-8) 라고 검색하면 *"American Standard Code for Information Interchange"*
-  라고 나오는데 여기서 우리는 *"American"*에 주목할 필요가 있다. 그렇다. 세상은 치사하기때문에 먼저 찜한 사람이 임자다. 컴퓨터가 미국에서 시작했기때문에 자연스럽게 문자에 대한 기준은 영어, 좀 더 정확히는 라틴어에서 파생된 알파벳을 사용하는 그 때 당시의 모든 언어들 중에 미국에서 가장 
+  라고 나오는데 여기서 우리는 *"American"* 에 주목할 필요가 있다. 그렇다. 세상은 치사하기때문에 먼저 찜한 사람이 임자다. 컴퓨터가 미국에서 시작했기때문에 자연스럽게 문자에 대한 기준은 영어, 좀 더 정확히는 라틴어에서 파생된 알파벳을 사용하는 그 때 당시의 모든 언어들 중에 미국에서 가장 
   많이 사용되고 있는 언어를 기준으로 한 표준 문자 부호를 우리는 [*ASCII*](https://namu.wiki/w/%EC%95%84%EC%8A%A4%ED%82%A4%20%EC%BD%94%EB%93%9C?from=ASCII)라고 부르고 있다. ASCII는 기본적으로 8비트 중 7비트를 사용해 문자들을 코드 값에 매핑시켜 놓았는데 이렇게 좁아터진 5평 남짓한 방에서 사는 듯한 느낌의 *ASCII* 코드는 결국 엄청난 사단(?)을 일으키고 만다.                                           
 <br>
 <br>
@@ -70,7 +70,7 @@
 결과는 실패. 이번에도 완전한 문자열을 얻는데에는 실패하고 말았다.
 <br><br><br>
 
-   이 외에도 ```new String```을 이용한 방법, ```String```을 이용한 방법, ```loadsh```의 ```join```, ```String.prototype.concat``` 등 문자열에 대한 거의 모든 메소드를 동원해 시도해 
+   이 외에도 ```new String```을 이용한 방법, ```String```을 이용한 방법, ```lodash```의 ```join```, ```String.prototype.concat``` 등 문자열에 대한 거의 모든 메소드를 동원해 시도해 
 봤지만 바꿀 수 있는건 아무것도 없었다.
 <br>
 
@@ -81,8 +81,7 @@
 왜냐하면 한글 문서도 결국 누군가가 원문을 읽고 번역을 한 것이기때문에, 번역기에 의존할지언정 노를 끝까지 저어보기로 결심했다.
 <br><br><br>
 
-   가장 먼저, "문자열은 무엇인가" 라는 의문에서 출발했다. 인간의 욕구 실현의 가장 마지막 단계가 자아실현이라고 했던가. 내가 누구인지를 알아내는 것이야말로 
-닭과 달걀 중 어느것이 먼지일지에 조금이라도 더 현명하게 생각할 수 있을것이란 생각이 들었다. 자바스크립트와 HTML, CSS 모두는 각각의 명세를 
+   가장 먼저, "문자열은 무엇인가" 라는 의문에서 출발했다. 인간의 욕구 실현의 가장 마지막 단계가 자아실현이라고 했던가. 폭포수에 앉아 떨어지는 폭포를 맞으며 "설마 탈모는 안되겠지" 라는 걱정과 함께 "나는 누구인가" 를 되뇌이진 못했지만, 대신 문자열의 출생신고가 적힌 곳으로 찾아가보았다. 찾아가면 문자열이 무엇인가인지는 알 수 있지 않을까하는 희망을 갖고서 말이다. 자바스크립트와 HTML, CSS 모두는 각각의 명세를 
 상세히 기록해놓은 공식문서가 존재하는데, 다음의 인용구는 [ECMA-262 표준 문서 초안](https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%201st%20edition,%20June%201997.pdf)에서 
 발췌한 내용이다.
 <br><br><br>
@@ -98,7 +97,7 @@
 
    좋다. 그러면 문자열이 유니코드인건 알았는데, *DOM Element*의 ```innerHTML```은 이것과 과연 무슨 관련인건지 검색을 해보기 시작했고, 
 이렇다할 결과를 찾을 수는 없었다. 애시당초 나는 그 시절 개발자가 아니었고 직간접적으로 경험해보지 않아 검색 키워드를 어떻게 
-설정해야할지 모르는 문제도 있었ㅇ리라. 확신은 없지만 문서에는 이런 내용이 적혀있는데 아마도 이러한 이유때문에 실패한 결과를 얻은 게 아닌가하는 생각이 든다.
+설정해야할지 모르는 문제도 있었으리라. 확신은 없지만 문서에는 이런 내용이 적혀있는데 아마도 이러한 이유때문에 실패한 결과를 얻은 게 아닌가하는 생각이 든다.
 
 > *In HTML, the innerHTML DOM attribute of all HTMLElement and HTMLDocument nodes returns a serialization of the node's children 
 > using the HTML syntax. On setting, it replaces the node's children with new nodes that result from parsing the given value.* <br>
@@ -119,12 +118,12 @@
 >   * ***If current node is a Text or CDATASection node***
 >       * *If one of the ancestors of current node is a /* ... 중략 ... */ plaintext element, then append the value of current node's data DOM attribute literally.*
 
-> * *"트리구조로 구성되어 있는 모든 노드들은 다음과 같은 절차를 수행한다."*
->   * *현재 노드가 처리 과정의 대상 컨텍스트가 되도록 한다.*
->   * *다음의 경우에 해당하는 목록에서 적절한 문자열을 s에 덧붙인다.*
->       * */* ... 중략 ... */*
->       * *현재 노드가 Text / CDATASection 노드라면*
->           * *현재 노드의 조상 노드들이 다음 중 하나라면, 현재 노드의 데이터를 있는 그대로 반환한다.*
+> *"트리구조로 구성되어 있는 모든 노드들은 다음과 같은 절차를 수행한다."*
+> * *현재 노드가 처리 과정의 대상 컨텍스트가 되도록 한다.*
+> * *다음의 경우에 해당하는 목록에서 적절한 문자열을 s에 덧붙인다.*
+>   * */* ... 중략 ... */*
+>   * ***현재 노드가 Text / CDATASection 노드라면***
+>       * *현재 노드의 조상 노드들이 다음 중 하나라면, 현재 노드의 데이터를 있는 그대로 반환한다.*
 
 [HTML 공식 문서에서 발췌한 html-fragment serialization algorithm](https://www.w3.org/TR/2008/WD-html5-20080610/serializing.html#html-fragment)
 
