@@ -229,3 +229,26 @@ console.log(CFile.replace(/[0-9]+-[0-9]+-[0-9]+/g, '...'));
 마지막으로, 이 글은 한글 인코딩에 대해 확실한 해결책을 제시하지 않고 있다. 테스트 케이스도 전혀 만들어보지 않았고 만들기도 힘들었다. 완성형에 해당하는 유니코드, 조합형에 해당하는 초성, 중성, 종성의 유니코드 모두를 취합해야지만 
 1개의 테스트 케이스를 만들 수 있으니 테스트 케이스 제작 비용이 너무 많이 들었기 때문에, 간단하게 내가 최초에 확인하고 싶었던 예제 한 가지만 확인하고 마무리를 지었다. 또한 브라우저 호환성 문제를 절대 간과할 수는 없다. 
 이미 이 문제에 대해 진지하게 다루고 있는 오픈 소스 라이브러리가 존재하지만 이도 완벽한 것은 아니니 결국에는 문제에 직면했을 때 어떻게 유연하게 대처하는가에 달렸다.
+<br><br><br>
+
+# 참고 자료 및 문헌
+* unescape() - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/unescape
+* escape() - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/escape
+* String.prototype.normaliza() - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize
+* Spread 문법 - https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+* Hangul-js - https://github.com/e-/Hangul.js
+* 유니코드 나무위키 - https://namu.wiki/w/%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C
+* 아스키코드 나무위키 - https://namu.wiki/w/%EC%95%84%EC%8A%A4%ED%82%A4%20%EC%BD%94%EB%93%9C?from=%EC%95%84%EC%8A%A4%ED%82%A4%EC%BD%94%EB%93%9C
+* 한글 조합형 나무위키 - https://namu.wiki/w/%EC%A1%B0%ED%95%A9%ED%98%95
+* 한글 완성형 나무위키 - https://namu.wiki/w/%EC%99%84%EC%84%B1%ED%98%95
+* 완성형/한글 목록/KS x 1001 - https://namu.wiki/w/%EC%99%84%EC%84%B1%ED%98%95/%ED%95%9C%EA%B8%80%20%EB%AA%A9%EB%A1%9D/KS%20X%201001
+* 완성형/한글 목록/KPS 9566 - https://namu.wiki/w/%EC%99%84%EC%84%B1%ED%98%95/%ED%95%9C%EA%B8%80%20%EB%AA%A9%EB%A1%9D/KPS%209566
+* w3g html-innerHTML - https://www.w3.org/TR/2008/WD-html5-20080610/dom.html#innerhtml0
+* w3g html-fragment algorithm - https://www.w3.org/TR/2008/WD-html5-20080610/serializing.html#html-fragment
+* Standard ECMA-262 - https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%201st%20edition,%20June%201997.pdf
+* Naver d2 한글 인코딩 - https://d2.naver.com/helloworld/19187
+<br><br>
+
+# 도움주신 분들
+야놀자 Web Team 한@@ 님,
+나의 전 직장 동료 꿀배 씨, wnsrl56 씨
