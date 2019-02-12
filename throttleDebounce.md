@@ -25,11 +25,21 @@ const btn = document.getElementById('btn');
 btn.addEventListener('click', handleClick);
 ```
 throttle을 ```setTimeout```을 이용해 구현하는 방법도 있으나 개인적으로 나는 아래와 같은 이유로 선호하지 않는다.
-* ```clearTimeout```을 같이 관리해줘야한다. [W3C Timers](https://www.w3.org/TR/2011/WD-html5-20110525/timers.html#dom-windowtimers-settimeout)에 따르면 
-```setTimeout```은 ```timerId```라는 양의 정수 값을 리턴하고 *list of active timeouts*에 넣어 관리한다. 즉 ```clearTimeout```을 
+* ~~```clearTimeout```을 같이 관리해줘야한다. [W3C Timers](https://www.w3.org/TR/2011/WD-html5-20110525/timers.html#dom-windowtimers-settimeout)에 따르면 
+~~```setTimeout```은 ```timerId```라는 양의 정수 값을 리턴하고 *list of active timeouts*에 넣어 관리한다. 즉 ```clearTimeout```을 
 사용할 때도 마찬가지로 *list of active timeouts*를 순회하면서 ```timerId```에 맞는 핸들러를 찾을 것이기 때문에 ```throttled```이 실행될 때마다
-O(n)의 시간복잡도를 요구하게 된다. 물론 O(n)은 O(1)인 HashMap, O(logn)인 트리 탐색다음으로 좋~~다고 해야하나~~은 알고리즘이기 때문에
-크게 상관은 없을 것이다. 그리고 ```if (current - lastCall < delay)``` 연산 또한 매번 실행될 것이기 때문에 연산 속도면에선 엄청 큰 차이는 없을 것으로 보인다. 
+O(n)의 시간복잡도를 요구하게 된다. 물론 O(n)은 O(1)인 HashMap, O(logn)인 트리 탐색다음으로 좋은 알고리즘이기 때문에
+크게 상관은 없을 것이다. 그리고 ```if (current - lastCall < delay)``` 연산 또한 매번 실행될 것이기 때문에 연산 속도면에선 엄청 큰 차이는 없을 것으로 보인다.~~ 
+
+* [2019-02-12 수정] 문서를 좀 더 찾아본 결과, `setTimeout`은 다음과 같은 스펙을 따른다는 것을 알게되었다.
+  > _6.1.2.4 Processing model_
+  > An event loop must continually run through the following steps for as long as it exists.
+  > ...
+  > 3. Remove that task from its task queue.
+
+즉 별도의 `clearTimeout`이 없어도 알아서 task queued에서 제거한다.
+참고 문서 - [6.1.4.2 Processing model - event loop](https://www.w3.org/TR/2011/WD-html5-20110525/webappapis.html#event-loop)
+
 * 그러나 ```setTimeout```을 사용해 ```throttled```을 구현하는 순간 ```async```의 특성을 띠게 될 것이다. 그렇다 나는 단순히 ```async```를 원하지 않는 것이다. ~~비동기로 쓰지도 않을건데 왜?~~
 
 * ### debounce<br>
